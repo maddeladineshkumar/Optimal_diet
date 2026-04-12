@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+/* Image fade-in on load */
+.img-fade {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.img-fade.loaded {
+  opacity: 1;
+}
+
+
+
+@media print {
+  @page {
+    size: A4;
+    margin: 20mm;
+    border: 3px solid #1e293b;
+  }
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    background-color: white !important;
+  }
+  /* Draw a border around every printed page using a fixed-position box */
+  .prescription-page-border {
+    display: block !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 3px solid #1e293b;
+    outline: 1px solid #1e293b;
+    outline-offset: -6px;
+    pointer-events: none;
+    z-index: 9999;
+  }
+}
+
